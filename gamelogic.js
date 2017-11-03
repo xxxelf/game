@@ -37,12 +37,15 @@ function Game() {
   //clicking the tile and running miniMax algorithm
   self.turnClick = function(square) {
     if (typeof origBoard[square.target.id] == "number") {
+      // put interval here??
       self.turn(square.target.id, huPlayer);
       if (!self.checkWin(origBoard, huPlayer) && !self.checkTie())
-        self.turn(self.bestSpot(), aiPlayer);
+        setTimeout(function() {
+          self.turn(self.bestSpot(), aiPlayer);
+        }, 700);
     }
   };
-  //writes X or O in the squares
+  //writes X or O in the squares called in turn click
   self.turn = function(squareId, player) {
     origBoard[squareId] = player;
     document.getElementById(squareId).innerText = player;
