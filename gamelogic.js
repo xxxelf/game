@@ -42,7 +42,7 @@ function Game() {
       if (!self.checkWin(origBoard, huPlayer) && !self.checkTie())
         setTimeout(function() {
           self.turn(self.bestSpot(), aiPlayer);
-        }, 700);
+        }, 500);
     }
   };
   //writes X or O in the squares called in turn click
